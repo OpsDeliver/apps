@@ -1,0 +1,28 @@
+{
+  "mysql": {
+    "server_root_password": "serverrootpassword"
+  },
+  "zabbix": {
+    "server": {
+      "version": "2.4.0"
+    },
+    "agent": {
+      "version": "2.4.0",
+      "servers": ["localhost"]
+    }
+  },
+  "run_list":[
+    "recipe[yum-epel]",
+    "recipe[zabbix-custom::default]",
+    "recipe[apache2::default]",
+    "recipe[database::mysql]",
+    "recipe[mysql::server]",
+    "recipe[mysql::client]",
+    "recipe[mysql-custom::default]",
+    "recipe[zabbix]",
+    "recipe[zabbix::database]",
+    "recipe[zabbix::server]",
+    "recipe[zabbix::web]",
+    "recipe[zabbix-custom::japanese_font]"
+  ]
+}

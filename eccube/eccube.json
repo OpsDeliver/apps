@@ -1,0 +1,31 @@
+{
+  "apache": {
+    "default_site_enabled": "true",
+    "docroot_dir" : "/var/www/eccube"
+  },
+  "postgresql": {
+    "password": {
+      "postgres": "secretpassword"
+    }
+  },
+  "eccube": {
+    "dirname"  : "eccube-2.13.2",
+    "filename" : "eccube-2.13.2.zip",
+    "url"      : "http://downloads.ec-cube.net/src/",
+    "database": {
+      "_DATABASE_NAME": "eccube_db",
+      "_USER_NAME": "eccube_db_user",
+      "_USER_PASSWORD": "eccube_db_user_password"
+    }
+  },
+  "run_list":[
+    "recipe[postgresql::server]",
+    "recipe[database::postgresql]",
+    "recipe[apache2::default]",
+    "recipe[php::default]",
+    "recipe[php::package]",
+    "recipe[php::module_pgsql]",
+    "recipe[eccube::default]",
+    "recipe[eccube::postgresql]"
+  ]
+}

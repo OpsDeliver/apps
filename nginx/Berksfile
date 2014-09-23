@@ -1,0 +1,11 @@
+source "https://api.berkshelf.com"
+
+cookbook 'nginx', '2.7.4'
+cookbook 'yum', '3.2.0'
+cookbook 'yum-epel', '0.3.6'
+cookbook 'build-essential', '2.0.2'
+cookbook 'apt', '2.4.0'
+cookbook 'bluepill', '2.3.1'
+cookbook 'rsyslog', '1.12.2'
+cookbook 'ohai', '2.0.1'
+cookbook 'runit', '1.5.10'

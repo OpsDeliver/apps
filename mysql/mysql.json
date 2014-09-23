@@ -1,0 +1,10 @@
+{
+  "mysql": {
+    "server_root_password": "secretpassword",
+    "version": "5.6"
+  },
+  "run_list":[
+    "recipe[mysql::server]",
+    "recipe[mysql-custom::default]"
+  ]
+}

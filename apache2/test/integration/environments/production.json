@@ -1,0 +1,7 @@
+{
+  "name": "production",
+  "description": "",
+  "cookbook_version": {}, 
+  "default_attributes": {}, 
+  "override_attributes": {}
+}

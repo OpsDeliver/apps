@@ -1,0 +1,4 @@
+source "https://api.berkshelf.com"
+
+cookbook 'mysql', '5.2.12'
+cookbook 'mysql-custom', git: 'https://github.com/ryoogata/mysql-custom.git'

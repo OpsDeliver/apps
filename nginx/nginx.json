@@ -1,0 +1,6 @@
+{
+  "run_list":[
+    "recipe[nginx::default]",
+    "recipe[nginx::ohai_plugin]"
+  ]
+}

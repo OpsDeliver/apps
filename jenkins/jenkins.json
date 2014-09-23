@@ -1,0 +1,11 @@
+{
+  "jenkins": {
+    "master" : {
+      "install_method": "package"
+    }
+  },
+  "run_list":[
+    "recipe[jenkins::java]",
+    "recipe[jenkins::master]"
+  ]
+}

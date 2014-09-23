@@ -1,0 +1,46 @@
+---
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-14.04
+    driver:
+      name: vagrant
+    driver_config:
+      require_chef_omnibus: 11.12.4
+      network:
+      - ["private_network", {ip: "192.168.33.30"}]
+
+  - name: centos-6.5
+    driver:
+      name: vagrant
+    driver_config:
+      require_chef_omnibus: 11.12.4
+      network:
+      - ["private_network", {ip: "192.168.33.40"}]
+
+  - name: ec2-centos-6.5
+    driver:
+      image_id: ami-81294380
+      username: root
+      name: ec2
+      aws_access_key_id: 
+      aws_secret_access_key: 
+      flavor_id: "t1.micro"
+      aws_ssh_key_id: 
+      ssh_key: 
+      security_group_ids: 
+      region: ap-northeast-1
+      availability_zone: ap-northeast-1c
+      interface: public
+      require_chef_omnibus: 11.12.4
+
+suites:
+  - name: default
+    run_list:
+      - recipe[mysql::server]
+      - recipe[mysql-custom::default]
+    attributes:
+      mysql:
+        server_root_password: 'secretpassword'
+        version: '5.6'

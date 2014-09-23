@@ -1,0 +1,36 @@
+---
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: centos-6.5
+    driver:
+      name: vagrant
+    driver_config:
+      require_chef_omnibus: 11.12.4
+      network:
+      - ["forwarded_port", {guest: 80, host: 8088}]
+      - ["private_network", {ip: "192.168.33.40"}]
+
+suites:
+  - name: default
+    run_list:
+      - recipe[postgresql::server]
+      - recipe[database::postgresql]
+      - recipe[apache2::default]
+      - recipe[php::default]
+      - recipe[php::package]
+      - recipe[php::module_pgsql]
+      - recipe[eccube::default]
+      - recipe[eccube::postgresql]
+    attributes:
+      apache:
+        default_site_enabled: 'true'
+      eccube:
+        database:
+          _DATABASE_NAME: 'eccube_db'
+          _USER_NAME: 'eccube_db_user'
+          _USER_PASSWORD: 'eccube_db_user_password'
+      postgresql:
+        password:
+          postgres: "secretpassword"

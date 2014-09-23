@@ -1,0 +1,7 @@
+{
+  "name": "test",
+  "description": "",
+  "cookbook_version": {}, 
+  "default_attributes": {}, 
+  "override_attributes": {}
+}

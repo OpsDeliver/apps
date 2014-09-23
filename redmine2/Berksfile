@@ -1,0 +1,11 @@
+source "https://api.berkshelf.com"
+
+# cookbook 'redmine2', '0.3.0'
+cookbook 'redmine2', git: "https://github.com/d-sea/redmine2-cookbook.git"
+cookbook 'rbenv', git: "https://github.com/fnichol/chef-rbenv"
+cookbook 'database', '2.3.0'
+cookbook 'mysql', '5.2.12'
+# cookbook 'postgresql', '3.4.0'
+cookbook 'networking_basic', '0.0.7'
+cookbook 'yum', '3.2.0'
+cookbook 'yum-epel', '0.3.6'

@@ -1,0 +1,10 @@
+source "https://api.berkshelf.com"
+
+cookbook 'zabbix', '0.8.0'
+cookbook 'zabbix-custom', git: 'https://github.com/OpsDeliver/zabbix-custom.git'
+cookbook 'mysql', '5.2.12'
+cookbook 'mysql-custom', git: 'https://github.com/OpsDeliver/mysql-custom.git'
+# cookbook 'postgresql', '3.4.0'
+cookbook 'yum-epel', '0.3.6'
+cookbook 'yum', '3.2.0'
+cookbook 'apache2', '1.10.4'

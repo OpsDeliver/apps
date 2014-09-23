@@ -1,0 +1,10 @@
+{
+  "postgresql": {
+    "password": {
+      "postgres": "secretpassword"
+    }
+  },
+  "run_list":[
+    "recipe[postgresql::server]"
+  ]
+}

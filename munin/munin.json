@@ -1,0 +1,14 @@
+{
+  "fqdn": "localhost",
+  "munin": {
+    "server_auth_method": "htauth",
+    "basedir": "/etc/munin",
+    "dbdir" : "/var/lib/munin",
+    "node": { "log_dir": "/var/log/munin" }
+  },
+  "run_list":[
+    "recipe[yum]",
+    "recipe[yum-epel]",
+    "recipe[munin::server]"
+  ]
+}
