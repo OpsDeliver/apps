@@ -3,12 +3,10 @@
     "server_root_password": "secretpassword"
   },
   "wordpress": {
-    "version": "3.9.1",
-    "url": "https://downloads.wordpress.org/release/ja/wordpress-3.9.1.tar.gz",
-    "server_name": "localhost",
+    "version": "4.0",
+    "url": "https://ja.wordpress.org/wordpress-4.0-ja.tar.gz",
     "languages": {
-      "lang": "ja",
-      "version": "3.8.x"
+      "lang": "ja"
     }
   },
   "run_list":[
