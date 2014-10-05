@@ -10,8 +10,6 @@
     }
   },
   "run_list":[
-    "recipe[yum::default]",
-    "recipe[yum-epel::default]",
     "recipe[networking_basic::default]",
     "recipe[redmine2::default]"
   ]

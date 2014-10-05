@@ -7,8 +7,6 @@
     "node": { "log_dir": "/var/log/munin" }
   },
   "run_list":[
-    "recipe[yum]",
-    "recipe[yum-epel]",
     "recipe[munin::server]"
   ]
 }

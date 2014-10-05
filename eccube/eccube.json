@@ -1,7 +1,6 @@
 {
   "apache": {
-    "default_site_enabled": "true",
-    "docroot_dir" : "/var/www/eccube"
+    "default_site_enabled": "true"
   },
   "postgresql": {
     "password": {
@@ -21,7 +20,8 @@
   "run_list":[
     "recipe[postgresql::server]",
     "recipe[database::postgresql]",
-    "recipe[apache2::default]",
+    "recipe[apache2]",
+    "recipe[apache2::mod_php5]",
     "recipe[php::default]",
     "recipe[php::package]",
     "recipe[php::module_pgsql]",

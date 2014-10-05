@@ -1,7 +1,9 @@
 source "https://api.berkshelf.com"
 
-cookbook 'eccube', git: "https://github.com/OpsDeliver/eccube.git"
-cookbook 'mysql', '-> 5.2.12'
-cookbook 'apache2', '-> 1.10.4'
-cookbook 'database', '-> 2.2.0'
-cookbook 'php', '-> 1.4.6'
+cookbook 'eccube',     github: "OpsDeliver/eccube"
+# cookbook 'eccube',   path: "/vagrant/Cookbooks/eccube"
+cookbook 'mysql',      '>= 5.2.12'
+cookbook 'apache2',    github: "OpsDeliver/apache2"
+# cookbook 'apache2',  path: "/vagrant/Cookbooks/apache2"
+cookbook 'database',   '>= 2.2.0'
+cookbook 'php',        '>= 1.4.6'
