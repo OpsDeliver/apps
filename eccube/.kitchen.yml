@@ -1,36 +1,53 @@
 ---
+driver:
+  name: vagrant
+
 provisioner:
   name: chef_solo
 
+driver_config:
+  require_chef_omnibus: true
+
 platforms:
-  - name: centos-6.5
-    driver:
-      name: vagrant
+  - name: ubuntu-14.04
     driver_config:
-      require_chef_omnibus: 11.12.4
-      network:
-      - ["forwarded_port", {guest: 80, host: 8088}]
-      - ["private_network", {ip: "192.168.33.40"}]
+      box: opscode-ubuntu-14.04
+      box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-14.04_provisionerless.box
+  - name: centos-6.5
+    driver_config:
+      box: opscode-centos-6.5
+      box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.5_chef-provisionerless.box
 
 suites:
   - name: default
-    run_list:
-      - recipe[postgresql::server]
-      - recipe[database::postgresql]
-      - recipe[apache2::default]
-      - recipe[php::default]
-      - recipe[php::package]
-      - recipe[php::module_pgsql]
-      - recipe[eccube::default]
-      - recipe[eccube::postgresql]
-    attributes:
-      apache:
-        default_site_enabled: 'true'
-      eccube:
-        database:
-          _DATABASE_NAME: 'eccube_db'
-          _USER_NAME: 'eccube_db_user'
-          _USER_PASSWORD: 'eccube_db_user_password'
-      postgresql:
-        password:
-          postgres: "secretpassword"
+    run_list: [
+	    "recipe[postgresql::server]",
+	    "recipe[database::postgresql]",
+	    "recipe[apache2]",
+	    "recipe[apache2::mod_php5]",
+	    "recipe[php::default]",
+	    "recipe[php::package]",
+	    "recipe[php::module_pgsql]",
+	    "recipe[eccube::default]",
+	    "recipe[eccube::postgresql]"
+		]
+    attributes: {
+		  "apache": {
+		    "default_site_enabled": "true"
+		  },
+		  "postgresql": {
+		    "password": {
+		      "postgres": "secretpassword"
+		    }
+		  },
+		  "eccube": {
+		    "dirname"  : "eccube-2.13.2",
+		    "filename" : "eccube-2.13.2.zip",
+		    "url"      : "http://downloads.ec-cube.net/src/",
+		    "database": {
+		      "_DATABASE_NAME": "eccube_db",
+		      "_USER_NAME": "eccube_db_user",
+		      "_USER_PASSWORD": "eccube_db_user_password"
+		    }
+		  }
+    }

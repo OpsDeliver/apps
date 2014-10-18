@@ -1,6 +1,7 @@
 source "https://api.berkshelf.com"
 
 cookbook 'redmine2',         github: "OpsDeliver/redmine2-cookbook"
+# cookbook 'redmine2',       path: "~/myrailsbox/Cookbooks/redmine2-cookbook"
 # cookbook 'redmine2',       path: "/vagrant/Cookbooks/redmine2-cookbook"
 cookbook 'rbenv',            github: "fnichol/chef-rbenv"
 cookbook 'database',         '>= 2.3.0'

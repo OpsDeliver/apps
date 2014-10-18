@@ -1,6 +1,7 @@
 source "https://api.berkshelf.com"
 
 cookbook 'munin',           github: "OpsDeliver/munin"
+# cookbook 'munin',         path: "~/myrailsbox/Cookbooks/munin"
 # cookbook 'munin',         path: "/vagrant/Cookbooks/munin"
 cookbook 'apache2',         github: "OpsDeliver/apache2"
 # cookbook 'apache2',       path: "/vagrant/Cookbooks/apache2"

@@ -1,25 +1,33 @@
 ---
 driver:
   name: vagrant
-  driver_config:
-    require_chef_omnibus: 11.12.4
 
 provisioner:
   name: chef_solo
 
+driver_config:
+  require_chef_omnibus: true
+
 platforms:
+  - name: ubuntu-14.04
+    driver_config:
+      box: opscode-ubuntu-14.04
+      box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-14.04_provisionerless.box
   - name: centos-6.5
     driver_config:
-      network:
-      - ["forwarded_port", {guest: 8080, host: 8080}]
-      - ["private_network", {ip: "192.168.33.1"}]
+      box: opscode-centos-6.5
+      box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.5_chef-provisionerless.box
 
 suites:
   - name: default
-    run_list:
-      - recipe[jenkins::java]
-      - recipe[jenkins::master]
-    attributes:
-      jenkins:
-        master:
-          port: '8080'
+    run_list: [
+	    "recipe[jenkins::java]",
+  	  "recipe[jenkins::master]"
+    ]
+    attributes: {
+		  "jenkins": {
+  		  "master" : {
+		      "install_method": "package"
+		    }
+			}
+    }
