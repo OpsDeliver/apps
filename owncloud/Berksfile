@@ -1,0 +1,8 @@
+source "https://api.berkshelf.com"
+
+cookbook 'owncloud',   github: "OpsDeliver/owncloud-cookbook"
+# cookbook 'owncloud',   path: "/Users/hironobu/myrailsbox/Cookbooks/owncloud-cookbook"
+cookbook 'mysql',      '5.2.12'
+cookbook 'apache2',    github: "OpsDeliver/apache2"
+cookbook 'database',   '2.2.0'
+cookbook 'php',        '1.4.6'

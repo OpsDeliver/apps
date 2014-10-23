@@ -1,0 +1,15 @@
+{
+  "owncloud": {
+    "config": {
+      "dbtype": "mysql",
+      "dbpassword" : "ownclouddbpass"
+    },
+    "admin": {
+      "pass" : "owncloudadminpass"
+    },
+    "server_name" : "owncloud.local"
+  },
+  "run_list":[
+    "recipe[owncloud::default]"
+  ]
+}
