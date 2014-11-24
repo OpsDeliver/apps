@@ -8,8 +8,8 @@
     }
   },
   "eccube": {
-    "dirname"  : "eccube-2.13.2",
-    "filename" : "eccube-2.13.2.zip",
+    "dirname"  : "eccube-2.13.3",
+    "filename" : "eccube-2.13.3.zip",
     "url"      : "http://downloads.ec-cube.net/src/",
     "database": {
       "_DATABASE_NAME": "eccube_db",
