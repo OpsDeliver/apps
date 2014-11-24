@@ -4,7 +4,7 @@
   },
   "wordpress": {
     "version": "4.0",
-    "url": "https://ja.wordpress.org/wordpress-4.0-ja.tar.gz",
+    "url": "https://ja.wordpress.org/wordpress-4.0.1-ja.tar.gz",
     "server_name": "localhost",
     "languages": {
       "lang": "ja"
